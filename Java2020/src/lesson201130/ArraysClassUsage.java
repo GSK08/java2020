@@ -28,9 +28,26 @@ public class ArraysClassUsage {
 		
 	}
 
-	private static int[] insert(int[] a, int key, int index) {
-		// TODO this is your home work
-		return null;
+	private static int[] insert(int[] arr, int val, int key) {
+	// TODO Auto-generated method stub
+	int[] newArr = new int[arr.length + 1];
+	
+	for (int i = 0; i < arr.length; i++) {
+		newArr[i] = arr[i];  //setting array elements from initial to the output array 
 	}
+	
+	if(key>arr.length-1) {
+		newArr[arr.length] = val;  //case when index is greater than array length
+	}
+	else {
+		for(int j = arr.length; j > key; j--) {
+			newArr[j] = newArr[j-1]; //shift elements above index to the right 
+		}
+		newArr[key] = val; // set the value to the index element
+	}
+	
+	return newArr; //output
+	
+}
 
 }
